@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WebsAura — Links</title>
+<meta name="theme-color" content="#0B1426">
+<meta name="description" content="Find WebsAura on Facebook and LinkedIn, visit our website, and try AstaDesk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2F6F5;
+    --ink: #0B1426;
+    --muted: #4F5D73;
+    --row: #FFFFFF;
+    --row-edge: #D8E3E0;
+    --green: #18AF7C;
+    --green-deep: #167B60;
+    --green-bright: #2FCD94;
+    --on-green: #0B1426;
+    --glow-a: rgba(47, 205, 148, .38);
+    --glow-b: rgba(22, 123, 96, .30);
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1426;
+      --ink: #EEF3F7;
+      --muted: #9AA8BC;
+      --row: #121F38;
+      --row-edge: #1F2F4F;
+      --green: #2FCD94;
+      --green-deep: #18AF7C;
+      --green-bright: #30CF95;
+      --on-green: #0B1426;
+      --glow-a: rgba(47, 205, 148, .30);
+      --glow-b: rgba(24, 175, 124, .22);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1426;
+      --ink: #EEF3F7;
+      --muted: #9AA8BC;
+      --row: #121F38;
+      --row-edge: #1F2F4F;
+      --green: #2FCD94;
+      --green-deep: #18AF7C;
+      --green-bright: #30CF95;
+      --on-green: #0B1426;
+      --glow-a: rgba(47, 205, 148, .30);
+      --glow-b: rgba(24, 175, 124, .22);
+      color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: inherit; margin: 0; }
+  html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1.25rem 2.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { width: 100%; max-width: 26rem; }
+
+  /* The one memorable thing: a living aura behind the mark */
+  .mark {
+    position: relative;
+    width: 7.5rem; height: 7.5rem;
+    margin: 0 auto 1.75rem;
+    display: grid; place-items: center;
+  }
+  .mark::before, .mark::after {
+    content: "";
+    position: absolute;
+    inset: -1.5rem;
+    border-radius: 40%;
+    filter: blur(22px);
+    z-index: 0;
+  }
+  .mark::before { border-radius: 2rem; background: radial-gradient(circle at 35% 40%, var(--glow-a), transparent 65%); animation: drift 9s ease-in-out infinite; }
+  .mark::after  { background: radial-gradient(circle at 65% 60%, var(--glow-b), transparent 60%); animation: drift 9s ease-in-out infinite reverse; }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(6px, -6px) scale(1.08); }
+  }
+  .mark .logo {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    border-radius: 1.45rem;
+    box-shadow: 0 10px 30px -12px rgba(11, 20, 38, .55);
+  }
+
+  header { text-align: center; margin-bottom: 2rem; }
+  h1 {
+    font-size: clamp(2.1rem, 9vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1.05;
+  }
+  header p {
+    color: var(--muted);
+    margin-top: .6rem;
+    font-size: 1.02rem;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  nav { display: grid; gap: .7rem; }
+  .link {
+    display: flex; align-items: center; gap: .95rem;
+    padding: .95rem 1.1rem;
+    min-height: 4rem;
+    background: var(--row);
+    border: 1px solid var(--row-edge);
+    border-radius: 1rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color .15s, transform .15s;
+  }
+  .link:hover { border-color: var(--green); }
+  .link:active { transform: scale(.985); }
+  .link:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+  .icon {
+    flex: none;
+    width: 2.5rem; height: 2.5rem;
+    border-radius: .7rem;
+    display: grid; place-items: center;
+    color: #fff;
+  }
+  .icon svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+  .fb   { background: #1877F2; }
+  .li   { background: #0A66C2; }
+  .web  { background: #0B1426; color: var(--green-bright); box-shadow: inset 0 0 0 1px var(--row-edge); }
+  .prod { background: linear-gradient(140deg, var(--green-bright), var(--green-deep)); color: var(--on-green); }
+  .text { display: flex; flex-direction: column; min-width: 0; }
+  .text strong { font-weight: 600; font-size: 1.05rem; line-height: 1.25; }
+  .text small { color: var(--muted); font-size: .88rem; }
+
+  /* Product row gets a little more weight */
+  .featured { border-color: var(--green); border-width: 1.5px; background: linear-gradient(var(--row), var(--row)) padding-box, linear-gradient(120deg, var(--green-bright), var(--green-deep)) border-box; border-color: transparent; }
+  .featured .text small { color: var(--green-deep); }
+  :root[data-theme="dark"] .featured .text small { color: var(--green); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .featured .text small { color: var(--green); } }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mark::before, .mark::after { animation: none; }
+    .link { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="mark"><svg class="logo" role="img" aria-label="WebsAura logo" viewBox="0 0 1546 1546" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1546" height="1546" rx="301" fill="#0B1426"/>
+<path d="M311.402 437.69C311.402 437.69 323.739 436.868 329.084 442.213C333.377 446.506 349.615 483.789 355.847 498.311L355.874 498.299L446.509 703.772L446.596 703.735L463.725 742.801L509.442 846.443L509.214 846.544L510.422 849.298C510.438 849.339 522.046 878.499 519.879 885.895C507.954 926.604 446.686 1072.17 436.406 1089.44C403.801 1144.21 371.459 1072.22 371.437 1072.17L257.23 810.054L160.703 591.227L160.61 591.269L120.608 507.182C120.608 507.182 110.612 477.948 123.897 459.483C138.277 439.495 160.61 438.67 160.61 438.67L311.402 437.69Z" fill="url(#paint0_linear_2256_183)"/>
+<path d="M615.688 437.69C615.688 437.69 628.024 436.868 633.37 442.213C637.662 446.507 653.9 483.79 660.132 498.311L660.16 498.299L750.794 703.772L750.881 703.735L768.01 742.801L813.728 846.443L813.499 846.544L814.707 849.298C814.737 849.371 826.33 878.503 824.164 885.895C812.24 926.604 750.972 1072.17 740.692 1089.44C708.1 1144.19 675.772 1072.28 675.722 1072.17L561.519 810.067L464.988 591.227L464.895 591.269L424.892 507.182C424.862 507.093 414.918 477.919 428.182 459.483C442.562 439.495 464.896 438.67 464.896 438.67L615.688 437.69Z" fill="url(#paint1_linear_2256_183)"/>
+<path d="M1037.58 1109.96C1037.65 1109.96 1049.93 1110.76 1055.26 1105.43C1059.55 1101.14 1075.79 1063.86 1082.02 1049.33L1082.05 1049.35L1172.68 843.873L1172.77 843.91L1189.95 804.729L1235.62 701.201L1235.39 701.101L1236.6 698.347C1236.6 698.347 1248.22 669.152 1246.06 661.75C1234.13 621.041 1172.86 475.477 1162.58 458.207C1129.98 403.44 1097.65 475.402 1097.61 475.477L983.422 737.55L886.878 956.418L886.786 956.376L846.783 1040.46C846.744 1040.58 836.814 1069.73 850.073 1088.16C864.432 1108.12 886.721 1108.97 886.786 1108.97L1037.58 1109.96Z" fill="url(#paint2_linear_2256_183)"/>
+<path d="M872.779 770.715C861.266 770.715 849.341 748.099 849.341 748.099L806.166 652.29L746.953 512.894C746.953 512.894 726.558 465.195 737.084 452.037C747.611 438.879 762.58 436 762.58 436L978.047 436C978.047 436 1003.54 438.056 1010.12 456.971C1016.7 475.887 1005.6 498.091 1005.6 498.091L892.928 748.099C892.928 748.099 881.826 770.715 872.779 770.715Z" fill="url(#paint3_linear_2256_183)"/>
+<path d="M1290.29 774.004C1278.77 774.004 1266.85 796.62 1266.85 796.62L1223.67 892.429L1164.46 1031.83C1164.46 1031.83 1144.06 1079.52 1154.59 1092.68C1165.12 1105.84 1180.09 1108.72 1180.09 1108.72L1395.55 1108.72C1395.55 1108.72 1421.05 1106.66 1427.63 1087.75C1434.2 1068.83 1423.1 1046.63 1423.1 1046.63L1310.43 796.62C1310.43 796.62 1299.33 774.004 1290.29 774.004Z" fill="url(#paint4_linear_2256_183)"/>
+<defs>
+<linearGradient id="paint0_linear_2256_183" x1="117" y1="480.5" x2="474.5" y2="981" gradientUnits="userSpaceOnUse">
+<stop stop-color="#30CE95"/>
+<stop offset="1" stop-color="#167B60"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2256_183" x1="421" y1="488" x2="824" y2="928" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2FCD94"/>
+<stop offset="1" stop-color="#167B60"/>
+</linearGradient>
+<linearGradient id="paint2_linear_2256_183" x1="945.001" y1="814.5" x2="1127" y2="996.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#30CF95"/>
+<stop offset="1" stop-color="#167B60"/>
+</linearGradient>
+<linearGradient id="paint3_linear_2256_183" x1="734" y1="503" x2="990.5" y2="640" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2FCD94"/>
+<stop offset="1" stop-color="#18AF7C"/>
+</linearGradient>
+<linearGradient id="paint4_linear_2256_183" x1="156" y1="473" x2="1430" y2="1109" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2FCD94"/>
+<stop offset="1" stop-color="#167B60"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+    <h1>WebsAura</h1>
+    <p>E-commerce stores, websites and AI solutions for growing businesses.</p>
+  </header>
+
+  <nav aria-label="WebsAura links">
+    <a class="link featured" href="https://astadesk.com/" target="_blank" rel="noopener">
+      <span class="icon prod" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v3.6l-1.7 2.9A1 1 0 0 0 4.2 17H8a4 4 0 0 0 8 0h3.8a1 1 0 0 0 .9-1.5L19 12.6V9a7 7 0 0 0-7-7Zm0 17a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2ZM9 9.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Zm6 0a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/></svg>
+      </span>
+      <span class="text"><strong>Meet Ava by AstaDesk</strong><small>AI support employee for Shopify</small></span>
+    </a>
+
+    <a class="link" href="https://websaura.com/" target="_blank" rel="noopener">
+      <span class="icon web" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15.6 15.6 0 0 0-1.3-3.8A8 8 0 0 1 18.9 8ZM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4ZM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h3a15.6 15.6 0 0 0 1.3 3.8A8 8 0 0 1 5.1 16Zm3-8h-3a8 8 0 0 1 4.3-3.8A15.6 15.6 0 0 0 8.1 8ZM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 5.8a15.6 15.6 0 0 0 1.3-3.8h3a8 8 0 0 1-4.3 3.8ZM16.3 14a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4Z"/></svg>
+      </span>
+      <span class="text"><strong>Visit our website</strong><small>websaura.com</small></span>
+    </a>
+
+    <a class="link" href="https://www.facebook.com/websaura" target="_blank" rel="noopener">
+      <span class="icon fb" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 0 0-2.2-.1c-2.2 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></svg>
+      </span>
+      <span class="text"><strong>Follow on Facebook</strong><small>@websaura</small></span>
+    </a>
+
+    <a class="link" href="https://www.linkedin.com/company/webs-aura" target="_blank" rel="noopener">
+      <span class="icon li" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M6.9 8.8H3.6V20h3.3V8.8ZM5.2 3.5a1.9 1.9 0 1 0 0 3.9 1.9 1.9 0 0 0 0-3.9ZM20.4 13.6c0-3-1.6-5-4.3-5-1.4 0-2.4.8-2.8 1.5V8.8H10V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.8 1.7 1.8 3V20h3.3l-.1-6.4Z"/></svg>
+      </span>
+      <span class="text"><strong>Connect on LinkedIn</strong><small>WebsAura</small></span>
+    </a>
+  </nav>
+
+  <footer>© <span id="y">2026</span> WebsAura</footer>
+</main>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
